@@ -1,0 +1,33 @@
+<app-navbar></app-navbar>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+  <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+    <thead
+      class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+    >
+      <tr class="flex justify-start items-center w-full">
+        <th scope="col" class="px-6 py-3"></th>
+        <th scope="col" class="px-6 py-3">date</th>
+        <th scope="col" class="px-6 py-3">time</th>
+        <th scope="col" class="px-6 py-3">time</th>
+        <th scope="col" class="px-6 py-3">decription</th>
+      </tr>
+    </thead>
+    <tbody class="w-full">
+      <app-time-item
+        *ngFor="let timesheet of timesheets; index as i"
+        [timesheet]="timesheet"
+        [index]="i"
+        (onupdateTimesheet)="updateTimesheet(timesheet)"
+      ></app-time-item>
+    </tbody>
+  </table>
+</div>
+<div class="w-full ml-10 mt-10 justify-center items-center">
+  <button
+    (click)="createTimesheet()"
+    class="w-28 h-10 shadow-lg text-center text-gray-100 bg-blue-400 rounded"
+  >
+    Add
+  </button>
+</div>

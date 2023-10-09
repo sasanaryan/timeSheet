@@ -1,10 +1,20 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { SupabaseService } from 'src/app/supabase.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'first-app-with-angular';
+export class AppComponent implements OnInit {
+  title = 'angular-user-management';
+
+  session = this.supabase.session;
+
+  constructor(private readonly supabase: SupabaseService) {}
+
+  ngOnInit() {
+    this.supabase.authChanges((_, session) => (this.session = session));
+    console.log(this.supabase);
+  }
 }

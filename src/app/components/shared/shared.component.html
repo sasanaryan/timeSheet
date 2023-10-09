@@ -1,0 +1,25 @@
+<div class="demo-row">
+  <div class="demo-row-content md:flex-1">
+    <button
+      class="text-white font-semibold"
+      tw-button
+      layout="stroked"
+      [twDropdownTriggerFor]="dropdown2"
+    >
+      Shared
+    </button>
+    <tw-dropdown class="w-40" xPosition="end" #dropdown2>
+      <button tw-dropdown-item *ngFor="let item of options">
+        {{ item.shared_email }}
+      </button>
+      <div>
+        <button tw-button layout="stroked" [twDropdownTriggerFor]="dropdown2">
+          Shared
+        </button>
+      </div>
+      <button tw-button layout="stroked" [twDropdownTriggerFor]="dropdown2">
+        Shared
+      </button>
+    </tw-dropdown>
+  </div>
+</div>
